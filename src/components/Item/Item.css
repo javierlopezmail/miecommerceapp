@@ -1,0 +1,11 @@
+.CardItem {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .ItemImg{
+    height: 150px !important;
+    object-fit: scale-down;
+}

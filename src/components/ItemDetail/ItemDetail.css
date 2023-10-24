@@ -1,0 +1,41 @@
+/* Estilos para ItemDetail */
+.CardItem {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .Header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .ItemHeader {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .ItemImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ItemImg img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+  
+  .Info {
+    padding: 10px;
+  }
+  
+  .ItemFooter {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
