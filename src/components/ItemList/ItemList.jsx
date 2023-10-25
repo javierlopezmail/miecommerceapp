@@ -2,9 +2,10 @@ import './ItemList.css'
 import Item from '../Item/Item'
 import {  List } from "antd";
 
-const ItemList = ({products}) => {
+const ItemList = ({products, loading}) => {
     return(
         <List
+        loading={loading}
         grid={{ column: 3 }}
         renderItem={ (product) => {
             return (

@@ -6,34 +6,59 @@ import { useNavigate } from 'react-router-dom'
 
 const { Title } = Typography
 
+// const items = [
+//     {
+//       label: 'Products',
+//       key: 'product',
+//       children: [
+//         {
+//           label: "All",
+//           key: "all",
+//         },
+//         {
+//           label: "Electronics",
+//           key: "electronics",
+//         },
+//         {
+//           label: "Jewelery",
+//           key: "jewelery",
+//         },
+//         {
+//           label: "Men's clothing",
+//           key: "men's clothing",
+//         },
+//         {
+//           label: "Women's clothing",
+//           key: "women's clothing",
+//         }
+//       ]      
+//     }
+//   ];
+
 const items = [
-    {
-      label: 'Products',
-      key: 'product',
-      children: [
-        {
-          label: "All",
-          key: "all",
-        },
-        {
-          label: "Electronics",
-          key: "electronics",
-        },
-        {
-          label: "Jewelery",
-          key: "jewelery",
-        },
-        {
-          label: "Men's clothing",
-          key: "men's clothing",
-        },
-        {
-          label: "Women's clothing",
-          key: "women's clothing",
-        }
-      ]      
-    }
-  ];
+  {
+    label: 'All Products',
+    key: 'all'
+  },
+  {
+    label: 'Electronics',
+    key: 'electronics'
+  },
+  {
+    label: 'Jewelery',
+    key: 'jewelery'
+  },
+  {
+    label: "Men's",
+    key: "men's clothing"
+  },
+  {
+    label: "Women's",
+    key: "women's clothing"
+  }
+];
+  
+
 
 const NavBar = () => {
   const navigate = useNavigate();

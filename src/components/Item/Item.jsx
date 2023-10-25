@@ -1,6 +1,6 @@
 import './Item.css'
 import { Link } from 'react-router-dom'
-import { Badge, Card, Image, Typography } from "antd";
+import { Badge, Card, Image, Typography, Rate } from "antd";
 
 const Item = (product) => {
     const url = `/item/${product.id}`
@@ -13,7 +13,10 @@ const Item = (product) => {
                 className="item-card"
                 title={product.title}
                 cover={<Image className="item-card-image" src={product.image} />}
-                actions={[<Link to={url}>Detail</Link>]}
+                actions={[
+                    <Rate allowHalf disabled value={product.rating.rate} />,
+                    <Link to={url}>Detail</Link>
+                ]}
               >
                 <Card.Meta
                   title={

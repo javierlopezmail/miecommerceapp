@@ -1,13 +1,14 @@
-import './ItemListContainer.css'
+import '../../Index.css'
 import { Typography } from 'antd'
 import { useState, useEffect } from 'react'
-import { getProducts, getProductsByCategory } from '../../asyncMock'
+import { getProducts, getProductsByCategory } from '../../Api/api'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 
 const { Title } = Typography
 
 const ItemListContainer = ({ gretting }) => {
+    const [loading, setloading] = useState(true)
     const [products, setProducts] = useState([])
 
     const { categoryId } = useParams()
@@ -22,12 +23,12 @@ const ItemListContainer = ({ gretting }) => {
             .catch(error => {
                 console.error(error)
             })
+            .finally(() => setloading(false))
     }, [categoryId])
 
     return (
         <div className="item-list-container">
-            <Title level={3}>{gretting}</Title>
-            <ItemList products={products} />
+            <ItemList products={products} loading={loading} />
         </div>
     )
 }
