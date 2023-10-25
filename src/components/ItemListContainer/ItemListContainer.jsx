@@ -13,7 +13,7 @@ const ItemListContainer = ({ gretting }) => {
     const { categoryId } = useParams()
 
     useEffect(() => {        
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        const asyncFunc = categoryId && categoryId !== 'all' ? getProductsByCategory : getProducts
 
         asyncFunc(categoryId)
             .then(response => {
@@ -25,7 +25,7 @@ const ItemListContainer = ({ gretting }) => {
     }, [categoryId])
 
     return (
-        <div class="item-list-container">
+        <div className="item-list-container">
             <Title level={3}>{gretting}</Title>
             <ItemList products={products} />
         </div>
