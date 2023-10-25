@@ -18,7 +18,7 @@ const ItemDetail = (product) => {
                 actions={[
                     <Rate allowHalf disabled value={product.rating.rate} />,
                     <Link to='/'>Back</Link>,
-                    <ItemCount initial={1} stock={product.rating.count} productTitle={product.title} onAdd={(quantity) => console.log('Cantidad agregada ', quantity)} />
+                    <ItemCount initial={1} stock={product.rating.count} productTitle={product.title} onAdd={(quantity) => console.log('Ammount added ', quantity)} />
                 ]}
               >
                 <Card.Meta
@@ -36,35 +36,6 @@ const ItemDetail = (product) => {
               </Card>
             </Badge.Ribbon>
           );
-
-        // <article className='CardItem'>
-        //     <header className='Header'>
-        //         <h2 className='ItemHeader'>
-        //             {product.title}
-        //         </h2>
-        //     </header>
-        //     <picture>
-        //         <img src={product.image} alt={product.title} className="ItemImg" />
-        //     </picture>
-        //     <section>
-        //         <p className='Info'>
-        //             Categoría: {product.category}
-        //         </p>
-        //         <p className='Info'>
-        //             Descripción: {product.description}
-        //         </p>
-        //         <p className='Info'>
-        //             Precio: ${product.price}
-        //         </p>
-        //     </section>
-        //     <footer className='ItemFooter'>
-        //         <ItemCount initial={1} stock={product.rating.count} onAdd={(quantity) => console.log('Cantidad agregada ', quantity)} />
-        //     </footer>
-        //     <footer className='ItemFooter'>
-        //         <Link to='/' className='Option'>Inicio</Link>
-        //     </footer>
-        // </article>
-    //)
 }
 
 export default ItemDetail

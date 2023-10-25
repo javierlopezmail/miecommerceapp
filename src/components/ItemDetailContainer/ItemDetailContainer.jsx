@@ -34,12 +34,6 @@ const ItemDetailContainer = () => {
                 }
                 dataSource={products}
             ></List>
-            {/* { loading && (<p>Cargando productos...</p>) }
-            { !loading && (
-                <div className='ItemDetailContainer'>
-                    <ItemDetail {...product} />
-                </div>
-            )} */}
         </>
     )
 }
