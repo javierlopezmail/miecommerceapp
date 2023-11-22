@@ -1,9 +1,13 @@
 import '../../Index.css'
 import { Typography } from 'antd'
-import { useState, useEffect } from 'react'
-import { getProducts, getProductsByCategory } from '../../Api/api'
+//import { useState, useEffect } from 'react'
+// import { getProducts, getProductsByCategory } from '../../Api/api'
+import { getDocs, collection, query, where} from 'firebase/firestore'
+import { db } from "../../firebase/client"
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
+
+import { useEffect, useContext, useState, createContext } from "react";
 
 const { Title } = Typography
 
@@ -13,17 +17,38 @@ const ItemListContainer = ({ gretting }) => {
 
     const { categoryId } = useParams()
 
-    useEffect(() => {        
-        const asyncFunc = categoryId && categoryId !== 'all' ? getProductsByCategory : getProducts
+    useEffect(() => {  
+        
+        const collectionRef = categoryId
+        ? query(collection(db, 'products'), where('category', '==', categoryId))
+        : collection(db, 'products')
 
-        asyncFunc(categoryId)
-            .then(response => {
-                setProducts(response)
+    getDocs(collectionRef)
+        .then(response => {
+            const productsAdapted = response.docs.map(doc => {
+                const data = doc.data()
+                return { id: doc.id, ...data}
             })
-            .catch(error => {
-                console.error(error)
-            })
-            .finally(() => setloading(false))
+            setProducts(productsAdapted)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        .finally(() => {
+            setloading(false)
+        })
+
+
+        // const asyncFunc = categoryId && categoryId !== 'all' ? getProductsByCategory : getProducts
+
+        // asyncFunc(categoryId)
+        //     .then(response => {
+        //         setProducts(response)
+        //     })
+        //     .catch(error => {
+        //         console.error(error)
+        //     })
+        //     .finally(() => setloading(false))
     }, [categoryId])
 
     return (
