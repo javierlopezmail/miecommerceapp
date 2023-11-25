@@ -2,7 +2,8 @@ import { db } from "../../firebase/client"
 import {getDocs, collection, query, where, addDoc, writeBatch, Timestamp, documentId } from 'firebase/firestore'
 import CheckoutForm from '../CheckoutForm/CheckoutForm'
 //import { useState, useContext } from 'react'
-import { CartContext } from "../../context/CartContext"
+//import { CartContext } from "../../context/CartContext"
+import { useCart } from '../../context/CartContext';
 
 import { useEffect, useContext, useState, createContext } from "react";
 
@@ -11,7 +12,8 @@ const Checkout = () => {
     const [orderId, setOrderId] = useState("")
 
     //const { cart, total, clearCart } = useState("")
-    const { cart, total, clearCart } = useContext(CartContext)
+    //const { cart, total, clearCart } = useContext(CartContext)
+    const { cart, total, clearCart } = useCart()
     console.log("The CART: " + cart)
 
 
@@ -41,8 +43,8 @@ const Checkout = () => {
 
             const { docs } = productsAddedFromFirestore
 
-            docs.foreach(doc => {
-                const dataDoc = doc.date()
+            docs.forEach(doc => {
+                const dataDoc = doc.data()
                 let stockDb = dataDoc.stock
 
                 const productAddedToCart = cart.find(prod => prod.id === doc.id)

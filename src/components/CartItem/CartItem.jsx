@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState, createContext } from "react";
 
-const CartItem = ({productName, quantity, unitPrice, subTotal}) => {
+const CartItem = ({title, quantity, price, subTotal}) => {
 
     const onRemoveCartItem = () => {
         //do a context.remove item. remove the item visualy
@@ -8,9 +8,9 @@ const CartItem = ({productName, quantity, unitPrice, subTotal}) => {
     }
     return (
         <div>
-            <div>{productName}</div>
+            <div>{title}</div>
             <div>Quantity: {quantity}</div>
-            <div>Unit Price: {unitPrice}</div>
+            <div>Unit Price: {price}</div>
             <div>Sub Total: ${subTotal}</div>
             <button onClick={() => onRemoveCartItem()} className="Button">X</button>
         </div>

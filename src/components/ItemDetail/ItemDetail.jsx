@@ -3,7 +3,10 @@ import '../../index.css'
 import ItemCount from '../ItemCount/ItemCount'
 import { Badge, Card, Image, Typography, Rate } from "antd";
 import { Link } from 'react-router-dom'
-import { CartContext } from '../../context/CartContext';
+//import { CartContext } from '../../context/CartContext';
+import { useCart } from '../../context/CartContext';
+import { logObject } from '../../Log/LogObject'
+import { logArray } from '../../Log/LogArray'
 
 import { useEffect, useContext, useState, createContext } from "react";
 
@@ -11,18 +14,40 @@ const ItemDetail = (product) => {
 
     const [quantityAdded, setQuantityAdded] = useState(0);
 
-    const { addItem } = useContext(CartContext)
+    //const { addItem } = useContext(CartContext)
+    const { addItem, cart } = useCart()
 
     const handleOnAdd = (quantity) => {
       setQuantityAdded(quantity)
 
       const item = {
         id: product.id, 
-        name: product.title, 
-        price: product.price
+        title: product.title, 
+        price: product.price,
+        quantity: quantity,
+        subTotal: product.price * quantity
       }
+      console.log("Item: ")
+      logObject(item);
+      addItem(item)
+      let aux = [
+        {
+          id: "1",
+          name: "name1"
+        },
+        {
+          id: "2",
+          name: "name2"
+        }
+      ];
 
-      addItem(item, quantity)
+      console.log("Aux: ")
+      logArray(aux);
+
+
+      console.log("Cart: ")
+      logArray(cart);
+
     }
     
     return (
