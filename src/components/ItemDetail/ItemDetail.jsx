@@ -1,25 +1,14 @@
 import '../../index.css'
-//import { useState, useContext } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { Badge, Card, Image, Typography, Rate } from "antd";
+import { Badge, Card, Image, Typography, Rate, message } from "antd";
 import { Link } from 'react-router-dom'
-//import { CartContext } from '../../context/CartContext';
 import { useCart } from '../../context/CartContext';
-import { logObject } from '../../Log/LogObject'
-import { logArray } from '../../Log/LogArray'
-
-import { useEffect, useContext, useState, createContext } from "react";
+import { useState } from "react";
 
 const ItemDetail = (product) => {
-
-    const [quantityAdded, setQuantityAdded] = useState(0);
-
-    //const { addItem } = useContext(CartContext)
     const { addItem, cart } = useCart()
 
     const handleOnAdd = (quantity) => {
-      setQuantityAdded(quantity)
-
       const item = {
         id: product.id, 
         title: product.title, 
@@ -27,15 +16,8 @@ const ItemDetail = (product) => {
         quantity: quantity,
         subTotal: product.price * quantity
       }
-      console.log("Item: ")
-      logObject(item);
       addItem(item)
-      
-      logArray(aux);
-
-
-      logArray(cart);
-
+      message.success("The product was added to the cart.");
     }
     
     return (
@@ -66,13 +48,6 @@ const ItemDetail = (product) => {
                     </Typography.Paragraph>
                   }
                 ></Card.Meta>                
-                {/* { 
-                  quantityAdded > 0 ? (
-                      <Link to='/cart' className='Option'>Terminar</Link>
-                  ) : (
-                      <ItemCount initial={1} stock={product.stock} onAdd={handleOnAdd}/>
-                  )
-                } */}
               </Card>
             </Badge.Ribbon>
           );

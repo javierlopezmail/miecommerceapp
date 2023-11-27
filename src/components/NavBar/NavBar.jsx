@@ -4,8 +4,6 @@ import { Menu } from 'antd'
 import { Typography } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
-import { useEffect, useContext, useState, createContext } from "react";
-
 const { Title } = Typography
 
 const items = [
@@ -30,9 +28,7 @@ const items = [
     key: "women_clothing"
   }
 ];
-  
-
-
+ 
 const NavBar = () => {
   const navigate = useNavigate();
 

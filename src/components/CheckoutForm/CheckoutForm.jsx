@@ -1,6 +1,5 @@
-//import { useState } from 'react'
 import { Form, Button, Input } from "antd"
-import { useEffect, useContext, useState, createContext } from "react";
+import { useState } from "react";
 
 const CheckoutForm = ({ onConfirm }) => {
     const [name, setName] = useState("")
@@ -8,12 +7,9 @@ const CheckoutForm = ({ onConfirm }) => {
     const [email, setEmail] = useState("")
 
     const handleConfirm = (event) => {
-        //event.preventDefault()
-
         const userData = {
             name, phone, email
         }
-
         onConfirm(userData)
     }
 
@@ -76,30 +72,6 @@ const CheckoutForm = ({ onConfirm }) => {
           </Button>
         </Form>
     )
-
-    
-
-    // return (
-    //     <div className="Container">
-    //         <form onSubmit={handleConfirm} className='Form'>
-    //             <label className='Label'>
-    //                 Name
-    //                 <input className="Input" type="text" value={name} onChange={({ target }) => setName(target.value)} />
-    //             </label>
-    //             <label className='Label'>
-    //                 Phone
-    //                 <input className="Input" tpye="text" value={phone} onChange={({ target }) => setPhone(target.value)} />
-    //             </label>
-    //             <label className='Label'>
-    //                 Email
-    //                 <input className='Input' type="email" value={email} onChange={({target}) => setEmail(target.value)} />
-    //             </label>
-    //             <div className='Label'>
-    //                 <button type="submit" className='Button>'>Create Order</button>
-    //             </div>
-    //         </form>
-    //     </div>
-    // )
 }
 
 export default CheckoutForm

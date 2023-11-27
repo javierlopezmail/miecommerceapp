@@ -1,10 +1,8 @@
 import '../../Index.css'
-//import { useState } from 'react'
-import { Button, Typography, message } from 'antd'
+import { Button, Typography } from 'antd'
+import { useState } from "react";
 
-import { useEffect, useContext, useState, createContext } from "react";
-
-const ItemCount = ({stock, initial, productTitle, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
     const [quantity, setQuantity] = useState(initial)
 
     const increment = () => {

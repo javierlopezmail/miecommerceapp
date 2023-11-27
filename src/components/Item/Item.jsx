@@ -2,8 +2,6 @@ import '../../Index.css'
 import { Link } from 'react-router-dom'
 import { Badge, Card, Image, Typography, Rate } from "antd";
 
-import { useEffect, useContext, useState, createContext } from "react";
-
 const Item = (product) => {
     const url = `/item/${product.id}`
     return (

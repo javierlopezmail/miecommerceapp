@@ -1,8 +1,6 @@
 import Item from '../Item/Item'
 import {  List } from "antd";
 
-import { useEffect, useContext, useState, createContext } from "react";
-
 const ItemList = ({products, loading}) => {
     return(
         <List

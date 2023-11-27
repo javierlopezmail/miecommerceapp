@@ -1,13 +1,11 @@
 import '../../Index.css'
 import { Typography } from 'antd'
-//import { useState, useEffect } from 'react'
-// import { getProducts, getProductsByCategory } from '../../Api/api'
 import { getDocs, collection, query, where} from 'firebase/firestore'
 import { db } from "../../firebase/client"
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 
-import { useEffect, useContext, useState, createContext } from "react";
+import { useEffect, useState } from "react";
 
 const { Title } = Typography
 
@@ -16,8 +14,6 @@ const ItemListContainer = ({ gretting }) => {
     const [products, setProducts] = useState([])
 
     const { categoryId } = useParams()
-
-    console.log("CategoryId: " + categoryId)
 
     useEffect(() => {  
         
@@ -39,18 +35,6 @@ const ItemListContainer = ({ gretting }) => {
         .finally(() => {
             setloading(false)
         })
-
-
-        // const asyncFunc = categoryId && categoryId !== 'all' ? getProductsByCategory : getProducts
-
-        // asyncFunc(categoryId)
-        //     .then(response => {
-        //         setProducts(response)
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
-        //     .finally(() => setloading(false))
     }, [categoryId])
 
     return (
