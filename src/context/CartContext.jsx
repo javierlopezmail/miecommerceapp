@@ -142,6 +142,14 @@ const CartProvider = ({ children }) => {
     //updateCartTotals();
   };
 
+//   const updateItemQuantity = (itemId, newQuantity) => {
+//     setCart((prevCart) =>
+//       prevCart.map((item) =>
+//         item.id === itemId ? { ...item, quantity: newQuantity } : item
+//       )
+//     );
+//   };
+
   // Helper function to update total and totalQuantity
   const updateCartTotals = () => {
     const newTotalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -157,6 +165,7 @@ const CartProvider = ({ children }) => {
     totalQuantity,
     total,
     addItem,
+    //updateItemQuantity,
     removeItem,
     clearCart,
   };

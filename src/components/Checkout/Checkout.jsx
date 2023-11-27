@@ -4,6 +4,7 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm'
 //import { useState, useContext } from 'react'
 //import { CartContext } from "../../context/CartContext"
 import { useCart } from '../../context/CartContext';
+import { message } from 'antd';
 
 import { useEffect, useContext, useState, createContext } from "react";
 
@@ -77,11 +78,13 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Your order is being generated...</h1>
+        return <h4>Your order is being generated...</h4>
+        //message.success("Your order has been placed successfully.");
     }
 
     if (orderId) {
-        return <h1>Your order's id is: {orderId}</h1>
+        //message.success("Your order's id is: ${orderId}");
+        return <h4>Your order's id is: {orderId}</h4>
     }
 
     return (

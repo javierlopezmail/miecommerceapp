@@ -17,10 +17,12 @@ const ItemListContainer = ({ gretting }) => {
 
     const { categoryId } = useParams()
 
+    console.log("CategoryId: " + categoryId)
+
     useEffect(() => {  
         
-        const collectionRef = categoryId
-        ? query(collection(db, 'products'), where('category', '==', categoryId))
+        const collectionRef = (categoryId && categoryId != "all")
+        ? query(collection(db, 'products'), where('categoryId', '==', categoryId))
         : collection(db, 'products')
 
     getDocs(collectionRef)

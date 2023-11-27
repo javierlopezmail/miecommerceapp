@@ -7,6 +7,8 @@ import { CartProvider } from './context/CartContext'
 import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout/Checkout'
 
+import SeedData from './firebase/seedData'
+
 import { useEffect, useContext, useState, createContext } from "react";
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
   return (
     <>
       <div>
+
+        {/* <SeedData /> */}
+
         <BrowserRouter>
           <CartProvider>
             <NavBar />
@@ -27,6 +32,9 @@ function App() {
             </Routes>
           </CartProvider>
         </BrowserRouter>
+
+
+
         {/* <NavBar />
         <ItemListContainer greeting={'Bienvenidos'} />
         <ItemDetailContainer /> */}

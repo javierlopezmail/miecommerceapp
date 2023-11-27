@@ -33,7 +33,7 @@ const ItemCount = ({stock, initial, productTitle, onAdd}) => {
                 <Button className='Button' onClick={increment}>+</Button>
             </div>
             <div className='inline-block'>
-                <Button type="link" onClick={() => onAdd(quantity) } disabled={!stock} >
+                <Button type="link" onClick={() => onAdd(quantity) } disabled={stock <= 0} >
                     Add to Cart
                 </Button>
             </div>

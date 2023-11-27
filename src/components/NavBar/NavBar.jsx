@@ -18,8 +18,8 @@ const items = [
     key: 'electronics'
   },
   {
-    label: 'Jewelery',
-    key: 'jewelery'
+    label: 'Jewelry',
+    key: 'jewelry'
   },
   {
     label: "Men's",
@@ -27,7 +27,7 @@ const items = [
   },
   {
     label: "Women's",
-    key: "women's clothing"
+    key: "women_clothing"
   }
 ];
   

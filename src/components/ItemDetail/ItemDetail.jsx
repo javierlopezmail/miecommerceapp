@@ -30,22 +30,10 @@ const ItemDetail = (product) => {
       console.log("Item: ")
       logObject(item);
       addItem(item)
-      let aux = [
-        {
-          id: "1",
-          name: "name1"
-        },
-        {
-          id: "2",
-          name: "name2"
-        }
-      ];
-
-      console.log("Aux: ")
+      
       logArray(aux);
 
 
-      console.log("Cart: ")
       logArray(cart);
 
     }
@@ -63,7 +51,7 @@ const ItemDetail = (product) => {
                 actions={[
                     <Rate allowHalf disabled value={product.rate} />,
                     <Link to='/'>Back</Link>,
-                    <ItemCount initial={1} stock={product.stock} productTitle={product.description} onAdd={(quantity) => console.log('Ammount added ', quantity)} />
+                    <ItemCount initial={product.stock > 0 ? 1 : 0} stock={product.stock} productTitle={product.description} onAdd={handleOnAdd} />
                 ]}
               >
                 <Card.Meta
@@ -78,13 +66,13 @@ const ItemDetail = (product) => {
                     </Typography.Paragraph>
                   }
                 ></Card.Meta>                
-                { 
+                {/* { 
                   quantityAdded > 0 ? (
                       <Link to='/cart' className='Option'>Terminar</Link>
                   ) : (
                       <ItemCount initial={1} stock={product.stock} onAdd={handleOnAdd}/>
                   )
-                }
+                } */}
               </Card>
             </Badge.Ribbon>
           );
